@@ -1,5 +1,12 @@
 name: Integration Test
-on: [push]
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -7,9 +14,9 @@ jobs:
       - uses: actions/checkout@master
       - name: Self test
         id: selftest
-        uses: muesli/readme-scribe@master
+        uses: charmbracelet/readme-scribe@master
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           template: "test/README.md.tpl"
           writeTo: "test/README.md"
