@@ -4,23 +4,23 @@ A GitHub Action that automatically generates & updates markdown content (like yo
 
 ## Instructions
 
-1. Create a [markscribe](https://github.com/muesli/markscribe) template and
-place it anywhere in a repository that you automatically want to update. In this
-guide we will use `templates/README.md.tpl`.
+1. Create a [markscribe](https://github.com/charmbracelet/markscribe) template and
+   place it anywhere in a repository that you automatically want to update. In this
+   guide we will use `templates/README.md.tpl`.
 
 You can find an example template that I use to automatically update my GitHub
-profile here: https://github.com/muesli/markscribe/blob/master/templates/github-profile.tpl
+profile here: https://github.com/charmbracelet/markscribe/blob/master/templates/github-profile.tpl
 
 2. In order to access some of GitHub's API, you need to provide a valid GitHub
-token as a secret called `PERSONAL_GITHUB_TOKEN`. You can create a new token by
-going to your profile settings:
+   token as a secret called `PERSONAL_GITHUB_TOKEN`. You can create a new token by
+   going to your profile settings:
 
 `Developer settings` > `Personal access tokens` > `Generate new token`
 
 Depending on your template you will need access to different API scopes. If you
 want to support the full set of features, tick the checkboxes next to these
 scopes: `read:user`, `repo:status`, `public_repo`, `read:org`. Check out the
-[markscribe](https://github.com/muesli/markscribe) documentation for a detailed
+[markscribe](https://github.com/charmbracelet/markscribe) documentation for a detailed
 list of required scopes for each individual template function.
 
 Now create a new secret in your repository's `Settings` and enter that token.
@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - uses: muesli/readme-scribe@master
+      - uses: charmbracelet/readme-scribe@master
         env:
           GITHUB_TOKEN: ${{ secrets.PERSONAL_GITHUB_TOKEN }}
         with:
@@ -70,4 +70,4 @@ the `master` branch. Make sure to adjust the input values `template` and
 
 ## Example output
 
-![readme-scribe example output](https://github.com/muesli/readme-scribe/raw/master/assets/template_example.png)
+![readme-scribe example output](https://github.com/charmbracelet/readme-scribe/raw/master/assets/template_example.png)
