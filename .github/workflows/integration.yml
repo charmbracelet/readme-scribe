@@ -16,7 +16,7 @@ jobs:
         id: selftest
         uses: charmbracelet/readme-scribe@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         with:
           template: "test/README.md.tpl"
           writeTo: "test/README.md"
